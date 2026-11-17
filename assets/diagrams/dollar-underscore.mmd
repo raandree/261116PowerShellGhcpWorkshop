@@ -1,0 +1,14 @@
+flowchart LR
+    IN["1..10"] -->|"one object at a time"| W{"Where-Object { $_ -gt 7 }"}
+    W -->|"$_ is 8, 9, 10<br/>condition is $true"| OUT["8<br/>9<br/>10"]
+    W -.->|"$_ is 1 to 7<br/>condition is $false"| DROP["dropped"]
+
+    classDef data fill:#EAF2FB,stroke:#2B6CB0,color:#0B1F3A
+    classDef command fill:#012456,stroke:#012456,color:#FFFFFF
+    classDef kept fill:#DAFBE1,stroke:#1A7F37,color:#0F3D1E
+    classDef dropped fill:#F6F8FA,stroke:#D0D7DE,color:#6E7781,stroke-dasharray:4 3
+
+    class IN data
+    class W command
+    class OUT kept
+    class DROP dropped

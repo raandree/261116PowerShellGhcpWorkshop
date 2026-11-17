@@ -1,0 +1,33 @@
+---
+status: current
+last-verified: 2026-11-17
+owner: active-agent
+source: repository evidence
+---
+
+# System patterns
+
+## Architecture
+
+- `README.md` is the handout: one document with the topics in three parts.
+- `assets/` holds the generated images next to their sources.
+
+## Decisions
+
+### Decision 1: Use the canonical Memory Bank base
+
+- Choice: Keep durable project context in `.memory-bank`.
+- Rationale: Preserve evidence-backed context across sessions.
+
+### Decision 2: Pre-render the diagrams to SVG
+
+- Choice: Write the diagrams in Mermaid, commit the rendered SVG files, and
+  embed the SVG files in the README.
+- Rationale: The diagrams render the same on GitHub, Azure DevOps, in VS Code,
+  and in print, with one consistent theme.
+
+### Decision 3: Keep the handout neutral
+
+- Choice: No personal names and no company references; screenshots are
+  captured signed out and cropped to the content.
+- Rationale: The handout goes to the customer as it is.

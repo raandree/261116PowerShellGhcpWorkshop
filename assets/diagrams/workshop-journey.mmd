@@ -1,0 +1,15 @@
+flowchart LR
+    P1["<b>Part 1 · PowerShell fundamentals</b><br/><br/>Everything is an object<br/>The pipeline, loops, and filters<br/>Building a pipeline step by step<br/>Hashtables<br/>PSCustomObject<br/>CSV, JSON, and YAML<br/>Inspecting and extending objects<br/>Strings and the format operator"]
+    P2["<b>Part 2 · From one-liners to tools</b><br/><br/>Your first function<br/>Pipeline input<br/>Splatting"]
+    P3["<b>Part 3 · Engineering practices</b><br/><br/>Debugging in VS Code<br/>Testing with Pester<br/>Building with Sampler<br/>CI/CD with GitHub Actions<br/>GitHub Copilot in the demo project"]
+
+    P1 ==>|"one-liner"| P2
+    P2 ==>|"function"| P3
+
+    classDef fundamentals fill:#EAF2FB,stroke:#2B6CB0,color:#0B1F3A,stroke-width:2px
+    classDef tools fill:#F3EEFC,stroke:#8250DF,color:#2D1B69,stroke-width:2px
+    classDef practices fill:#DAFBE1,stroke:#1A7F37,color:#0F3D1E,stroke-width:2px
+
+    class P1 fundamentals
+    class P2 tools
+    class P3 practices

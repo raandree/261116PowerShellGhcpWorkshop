@@ -1,0 +1,31 @@
+flowchart TB
+    TRIGGER(["push to main · pull request<br/>version tag · manual run"]) --> PACK
+
+    subgraph PACK["Job 1 · Package Module · ubuntu-latest"]
+        direction LR
+        P1["GitVersion<br/>calculates the version"] --> P2["./build.ps1<br/>-ResolveDependency -Tasks pack"]
+        P2 --> P3["upload output/<br/>as build artifact"]
+    end
+
+    subgraph TESTS["Job 2 · Test matrix · ./build.ps1 -Tasks test"]
+        direction TB
+        TU["ubuntu-latest<br/>PowerShell 7"]
+        TW7["windows-latest<br/>PowerShell 7"]
+        TW5["windows-latest<br/>Windows PowerShell 5.1"]
+        TM["macos-latest<br/>PowerShell 7"]
+    end
+
+    PACK ==>|"same build artifact on every platform"| TESTS
+    TESTS --> SUMMARY["<b>Job 3 · Test Results</b><br/>summary page of the run"]
+    TESTS --> DEPLOY["<b>Job 4 · Deploy Module</b><br/>./build.ps1 -Tasks publish"]
+    DEPLOY -.-> SKIP["publish to GitHub and the PowerShell Gallery<br/>skipped: no API key configured"]
+
+    classDef trigger fill:#012456,stroke:#012456,color:#FFFFFF
+    classDef step fill:#EAF2FB,stroke:#2B6CB0,color:#0B1F3A
+    classDef job fill:#DAFBE1,stroke:#1A7F37,color:#0F3D1E
+    classDef skipped fill:#F6F8FA,stroke:#8C959F,color:#57606A,stroke-dasharray:5 4
+
+    class TRIGGER trigger
+    class P1,P2,P3 step
+    class TU,TW7,TW5,TM,SUMMARY,DEPLOY job
+    class SKIP skipped

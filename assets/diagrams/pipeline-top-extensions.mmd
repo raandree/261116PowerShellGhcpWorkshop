@@ -1,0 +1,20 @@
+flowchart TB
+    subgraph COLLECT["Steps 1 to 3 · collect, group, and sort"]
+        direction LR
+        S1["<b>Get-ChildItem</b><br/>-Recurse -File"] -->|"one <b>FileInfo</b><br/>per file"| S2["<b>Group-Object</b><br/>-Property Extension"]
+        S2 -->|"one <b>GroupInfo</b> per extension<br/>Name · Count · Group"| S3["<b>Sort-Object</b><br/>-Property Count -Descending"]
+    end
+
+    subgraph MEASURE["Steps 4 and 5 · pick and measure"]
+        direction LR
+        S4["<b>Select-Object</b><br/>-First 5"] -->|"the top 5<br/>groups"| S5["<b>ForEach-Object</b><br/>+ Measure-Object -Sum"]
+        S5 -->|"one <b>PSCustomObject</b><br/>per extension"| R["Extension<br/>FileCount<br/>TotalFileSize"]
+    end
+
+    COLLECT ==>|"groups with the most files first"| MEASURE
+
+    classDef command fill:#012456,stroke:#012456,color:#FFFFFF
+    classDef result fill:#DAFBE1,stroke:#1A7F37,color:#0F3D1E
+
+    class S1,S2,S3,S4,S5 command
+    class R result

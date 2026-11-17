@@ -1,0 +1,21 @@
+flowchart TB
+    IN(["An object arrives from the pipeline"]) --> Q1{{"Can the object itself bind to a parameter<br/>that has <b>ValueFromPipeline</b>?"}}
+    Q1 -->|"yes"| BV["<b>By value</b><br/>the whole object becomes the parameter value"]
+    Q1 -->|"no"| Q2{{"Does the object have a property with the name<br/>or alias of a parameter that has<br/><b>ValueFromPipelineByPropertyName</b>?"}}
+    Q2 -->|"yes"| BP["<b>By property name</b><br/>the property value becomes the parameter value"]
+    Q2 -->|"no"| ERR["<b>Error</b><br/>the input object cannot be bound"]
+
+    BV -.- EX1["'C:\Logs' | Get-LargestFile -Top 3<br/>the string binds to -Path"]
+    BP -.- EX2["Get-ChildItem -Directory | Get-LargestFile -Top 1<br/>the PSPath property binds to -LiteralPath<br/>through its alias PSPath"]
+
+    classDef start fill:#012456,stroke:#012456,color:#FFFFFF
+    classDef question fill:#FFF8C5,stroke:#9A6700,color:#3B2300
+    classDef bound fill:#DAFBE1,stroke:#1A7F37,color:#0F3D1E
+    classDef failed fill:#FFEBE9,stroke:#CF222E,color:#5C0011
+    classDef example fill:#F6F8FA,stroke:#D0D7DE,color:#1F2328
+
+    class IN start
+    class Q1,Q2 question
+    class BV,BP bound
+    class ERR failed
+    class EX1,EX2 example

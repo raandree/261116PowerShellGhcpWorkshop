@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!--
+  Master for banner.png. Render at 1280x320 CSS pixels with a device scale
+  factor of 2 and a transparent background; see assets/README.md.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PowerShell and GitHub Copilot workshop banner</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+  }
+
+  .banner {
+    position: relative;
+    box-sizing: border-box;
+    width: 1280px;
+    height: 320px;
+    padding: 0 52px 0 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 36px;
+    overflow: hidden;
+    border-radius: 22px;
+    color: #FFFFFF;
+    font-family: "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
+    background:
+      radial-gradient(circle at 88% 6%, rgba(130, 80, 223, 0.45), transparent 46%),
+      radial-gradient(circle at 4% 100%, rgba(31, 111, 235, 0.35), transparent 40%),
+      radial-gradient(rgba(255, 255, 255, 0.07) 1.2px, transparent 1.6px) 0 0 / 22px 22px,
+      linear-gradient(120deg, #06152B 0%, #012456 48%, #24185A 100%);
+  }
+
+  .left {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .eyebrow {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #7FB2FF;
+  }
+
+  h1 {
+    margin: 10px 0 8px;
+    font-size: 46px;
+    font-weight: 650;
+    line-height: 1.08;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+  }
+
+  h1 .amp {
+    color: #A98BF5;
+    font-weight: 500;
+  }
+
+  .subtitle {
+    margin: 0 0 22px;
+    font-size: 22px;
+    font-weight: 350;
+    color: #C9D7EA;
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .chips span {
+    padding: 4px 11px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 13px;
+    font-weight: 500;
+    color: #E6EDF7;
+  }
+
+  .terminal {
+    flex: 0 0 auto;
+    width: 440px;
+    border-radius: 14px;
+    border: 1px solid rgba(127, 178, 255, 0.35);
+    background: rgba(3, 10, 24, 0.82);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+    overflow: hidden;
+  }
+
+  .titlebar {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 13px;
+    color: #8B949E;
+  }
+
+  .titlebar i {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .titlebar .label {
+    margin-left: 8px;
+  }
+
+  pre {
+    margin: 0;
+    padding: 15px 16px 17px;
+    font-family: "Cascadia Mono", Consolas, monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #E6EDF3;
+    font-variant-ligatures: none;
+  }
+
+  .prompt { color: #7EE787; }
+  .cont { color: #6E7681; }
+  .cmd { color: #D2A8FF; }
+  .param { color: #79C0FF; }
+  .value { color: #FFA657; }
+  .pipe { color: #FF7B72; }
+  .cursor {
+    display: inline-block;
+    width: 9px;
+    height: 17px;
+    vertical-align: -3px;
+    background: #7EE787;
+  }
+</style>
+</head>
+<body>
+  <div class="banner">
+    <div class="left">
+      <div class="eyebrow">Workshop notes · November 2026</div>
+      <h1>PowerShell <span class="amp">&amp;</span> GitHub Copilot</h1>
+      <p class="subtitle">From one-liners to tested, automated solutions</p>
+      <div class="chips">
+        <span>Objects</span>
+        <span>Pipeline</span>
+        <span>Functions</span>
+        <span>Debugging</span>
+        <span>Pester</span>
+        <span>Sampler</span>
+        <span>GitHub Actions</span>
+      </div>
+    </div>
+    <div class="terminal" aria-hidden="true">
+      <div class="titlebar">
+        <i style="background:#FF5F57"></i><i style="background:#FEBC2E"></i><i style="background:#28C840"></i>
+        <span class="label">pwsh</span>
+      </div>
+<pre><span class="prompt">PS&gt;</span> <span class="cmd">Get-ChildItem</span> <span class="param">-Recurse -File</span> <span class="pipe">|</span>
+<span class="cont">&gt;&gt;</span>     <span class="cmd">Group-Object</span> <span class="param">-Property</span> <span class="value">Extension</span> <span class="pipe">|</span>
+<span class="cont">&gt;&gt;</span>     <span class="cmd">Sort-Object</span> <span class="param">-Property</span> <span class="value">Count</span> <span class="param">-Descending</span> <span class="pipe">|</span>
+<span class="cont">&gt;&gt;</span>     <span class="cmd">Select-Object</span> <span class="param">-First</span> <span class="value">5</span>
+<span class="prompt">PS&gt;</span> <span class="cursor"></span></pre>
+    </div>
+  </div>
+</body>
+</html>

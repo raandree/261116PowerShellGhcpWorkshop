@@ -1,0 +1,26 @@
+flowchart TB
+    DEV["<b>Your machine</b><br/>VS Code with the debugger"] --> BUILD
+    CI["<b>CI runner</b><br/>GitHub Actions"] --> BUILD
+    BUILD["<b>./build.ps1</b> -Tasks &lt;workflow&gt;"] -->|"reads"| YAML["<b>build.yaml</b> · BuildWorkflow"]
+    YAML -->|"default workflow '.' = build, then test"| FLOW
+
+    subgraph FLOW["Workflows are lists of tasks"]
+        direction LR
+        WB["<b>build</b><br/>Clean<br/>Task1 · custom task in .build/<br/>Build_Module_ModuleBuilder<br/>Build_NestedModules_ModuleBuilder<br/>Create_changelog_release_output"]
+        WT["<b>test</b><br/>Pester_Tests_Stop_On_Fail<br/>Pester_if_Code_Coverage_Under_Threshold"]
+        WB --> WT
+    end
+
+    FLOW --> OUT[("<b>output/</b><br/>module · testResults")]
+
+    classDef entry fill:#F3EEFC,stroke:#8250DF,color:#2D1B69
+    classDef command fill:#012456,stroke:#012456,color:#FFFFFF
+    classDef workflow fill:#EAF2FB,stroke:#2B6CB0,color:#0B1F3A
+    classDef gate fill:#DAFBE1,stroke:#1A7F37,color:#0F3D1E
+    classDef output fill:#FFF8C5,stroke:#9A6700,color:#3B2300
+
+    class DEV,CI entry
+    class BUILD,YAML command
+    class WB workflow
+    class WT gate
+    class OUT output
