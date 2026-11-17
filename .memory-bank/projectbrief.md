@@ -14,8 +14,9 @@ held in November 2026, prepared as a handout for the participants.
 
 ## Scope
 
-- In scope: the README with a recap of every workshop topic, verified
-  references, diagrams, a banner, and a screenshot of the demo pipeline.
+- In scope: `README.md` as the landing page, 17 topic pages in `docs/`
+  with exercises, the sample data in `samples/`, diagrams, a banner, and a
+  screenshot of the demo pipeline.
 - Out of scope: the demo project FileManagementSample, which lives in its own
   repository.
 

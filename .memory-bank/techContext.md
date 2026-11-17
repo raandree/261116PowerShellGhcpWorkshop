@@ -20,15 +20,22 @@ source: repository evidence
 - The examples were verified with PowerShell 7.6 on Windows, culture en-US.
 - The demo project FileManagementSample ran CI run 44084182216 on
   2026-11-17 with Pester 6.2.0: 52 tests passed on four platforms.
+- On the authoring machine, a plain `Invoke-Pester` in `pwsh` loads Pester
+  5.7.1; the sample tests pass with 5.7.1 and 6.2.0.
+- Topic 13 was verified with Sampler 0.120.1, loaded from a temp folder.
 
 ## Constraints
 
 - No personal names and no company references in the handout.
+- Every shown output comes from a real run; outputs never show a user
+  profile path.
 - Diagrams keep a white background, so they stay readable in dark mode.
 - `useMaxWidth: false` gives every SVG its natural size.
 - Screenshots are captured signed out and cropped to the content.
 
 ## Validation
 
-- `npx markdownlint-cli2 README.md assets/README.md`
+- `npx markdownlint-cli2 "**/*.md"`
+- `Invoke-ScriptAnalyzer -Path samples -Recurse`
+- `Invoke-Pester -Path ./samples`, launched detached on authoring machines.
 - Regenerate the images with the commands in `assets/README.md`.

@@ -1,0 +1,20 @@
+flowchart TB
+    FN["<b>Get-FileExtensionSize</b><br/>one function in a script file"] -->|"Add-Sample"| SRC
+
+    SRC["<b>source/</b><br/>the files you edit<br/>Public/ · one file per exported function<br/>Private/ · helper functions, not exported<br/>WorkshopTools.psd1 · the manifest"]
+
+    SRC ==>|"./build.ps1 merges, versions, and tests"| OUT
+
+    OUT["<b>output/module/WorkshopTools/0.0.1</b><br/>the module you ship<br/>WorkshopTools.psm1 · all functions in one file<br/>WorkshopTools.psd1 · exports the public functions"]
+
+    OUT -->|"Import-Module"| USE["your session · the tests · the PowerShell Gallery"]
+
+    classDef entry fill:#F3EEFC,stroke:#8250DF,color:#2D1B69
+    classDef source fill:#EAF2FB,stroke:#2B6CB0,color:#0B1F3A
+    classDef built fill:#DAFBE1,stroke:#1A7F37,color:#0F3D1E
+    classDef output fill:#FFF8C5,stroke:#9A6700,color:#3B2300
+
+    class FN entry
+    class SRC source
+    class OUT built
+    class USE output

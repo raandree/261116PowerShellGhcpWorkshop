@@ -9,16 +9,18 @@ source: current task evidence
 
 ## Current focus
 
-The workshop notes are complete in `README.md`, with diagrams, a banner, and
-a CI screenshot in `assets/`.
+The workshop notes are split into 17 topic pages in `docs/`, each with
+concepts, common pitfalls, exercises with solutions, key takeaways, and
+links. `README.md` is the landing page; `samples/` holds the sample data.
 
 ## Evidence
 
-- markdownlint-cli2 reports no issues for `README.md` and `assets/README.md`.
-- 86 external URLs return HTTP 200; 24 anchors and 9 local links resolve;
-  32 PowerShell code blocks parse.
-- Documentation claims were checked against Microsoft Learn, GitHub Docs,
-  VS Code Docs, and pester.dev on 2026-11-17.
+- Final check on 20 Markdown files: markdownlint 0 issues, 274 PowerShell
+  blocks parse, 163 URLs return HTTP 200, 109 local links resolve.
+- `samples/New-WorkshopFolder.Tests.ps1`: 17 of 17 tests pass;
+  PSScriptAnalyzer reports 0 findings for `samples/`.
+- Five writers produced pages 02 to 17 from briefs; the controller reviewed
+  every page and spot-checked claims by running them.
 
 ## Next step
 

@@ -1,0 +1,34 @@
+flowchart LR
+    subgraph CONTEXT["What reaches Copilot"]
+        direction TB
+        PROMPT(["<b>Your request</b><br/>in Copilot Chat"])
+        CI["<b>.github/copilot-instructions.md</b><br/>with every request"]
+        PI["<b>.github/instructions/*.instructions.md</b><br/>when applyTo matches a file<br/>that Copilot works on"]
+        SK["<b>.github/skills/*/SKILL.md</b><br/>name and description first,<br/>the body when the task fits"]
+        MB["<b>.memory-bank/index.md</b><br/>when you or an instruction<br/>ask Copilot to read it"]
+        PROMPT ~~~ CI ~~~ PI ~~~ SK ~~~ MB
+    end
+
+    subgraph RESULT["What happens with the result"]
+        direction TB
+        MODEL["<b>Copilot</b><br/>proposes code, tests,<br/>and commands"]
+        REVIEW{{"<b>You review</b><br/>tests · PSScriptAnalyzer<br/>./build.ps1"}}
+        GIT["<b>You</b><br/>commit, push, and tag"]
+        MODEL --> REVIEW
+        REVIEW -->|"accepted"| GIT
+        REVIEW -.->|"changes needed"| MODEL
+    end
+
+    CONTEXT ==> RESULT
+
+    classDef start fill:#012456,stroke:#012456,color:#FFFFFF
+    classDef always fill:#EAF2FB,stroke:#2B6CB0,color:#0B1F3A
+    classDef ondemand fill:#F3EEFC,stroke:#8250DF,color:#2D1B69
+    classDef question fill:#FFF8C5,stroke:#9A6700,color:#3B2300
+    classDef done fill:#DAFBE1,stroke:#1A7F37,color:#0F3D1E
+
+    class PROMPT,MODEL start
+    class CI,PI always
+    class SK,MB ondemand
+    class REVIEW question
+    class GIT done

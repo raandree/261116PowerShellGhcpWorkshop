@@ -20,9 +20,12 @@ to revisit the topics after the workshop.
 
 ## Core workflows
 
-1. Read `README.md` on the repository host and follow the links to the
-   official documentation and to the demo project FileManagementSample.
-2. Clone the demo project and repeat the demos.
+1. Start at `README.md`, pick a topic, and follow the navigation links from
+   one topic page in `docs/` to the next.
+2. Create the sample data with `samples/New-WorkshopFolder.ps1` and
+   `samples/People.csv`, then solve the exercises and compare with the
+   collapsible solutions.
+3. Clone the demo project FileManagementSample and repeat the demos.
 
 ## Experience goals
 

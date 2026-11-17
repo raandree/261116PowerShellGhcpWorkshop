@@ -31,3 +31,19 @@ source: repository evidence
 - Choice: No personal names and no company references; screenshots are
   captured signed out and cropped to the content.
 - Rationale: The handout goes to the customer as it is.
+
+### Decision 4: One page per topic with a fixed template
+
+- Choice: Every page in `docs/` has a breadcrumb, concepts, common pitfalls,
+  exercises with collapsible solutions, key takeaways, links, and a
+  navigation footer. Content beyond the workshop is integrated without
+  markers.
+- Rationale: The user chose this structure; a fixed template keeps 17 pages
+  consistent and easy to navigate.
+
+### Decision 5: Deterministic sample data
+
+- Choice: Exercises use `samples/People.csv` and the folder that
+  `samples/New-WorkshopFolder.ps1` creates; the script writes identical
+  bytes on every platform and deletes only folders that carry its marker.
+- Rationale: Exercise solutions can show real, reproducible output.

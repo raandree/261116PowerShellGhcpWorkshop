@@ -13,6 +13,10 @@ sources, then regenerate the images with the commands below.
 | `diagrams/mermaid-config.json` | Theme, colors, and layout settings shared by all diagrams               |
 | `screenshots/ci-run-graph.png` | Screenshot of a GitHub Actions run of FileManagementSample, 17 Nov 2026 |
 
+The README uses `workshop-journey.svg`. The topic pages in `docs` use the
+other diagrams; a diagram that belongs to a single topic starts with the
+number of its page, such as `13-function-to-module.mmd` for topic 13.
+
 ## Regenerate the diagrams
 
 The diagrams need [Node.js](https://nodejs.org/) and the
