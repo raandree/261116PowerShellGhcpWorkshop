@@ -117,8 +117,6 @@ Set-Location -Path FileManagementSample
 ./build.ps1
 ```
 
-[fms]: https://github.com/raandree/FileManagementSample
-
 ## Kick-off and experience check
 
 The workshop started with a round on everyone's experience. The same
@@ -136,10 +134,9 @@ that cover it.
 
 ## Next steps
 
-Open from the workshop:
-
-- [ ] Ask the trainer for the `ZfFileManagementModule`, so that its module
-  files can be added to the repository.
+The file management module from the workshop is published as
+[FileManagementSample][fms]: its module files, tests, and build pipeline
+are all in that repository.
 
 Suggested practice:
 
@@ -215,3 +212,5 @@ Starting points for further learning:
 | TestDrive           | A temporary folder that Pester creates for a test and deletes afterwards                    |
 | `$_` and `$PSItem`  | The current object in the pipeline                                                          |
 | Workflow            | In Sampler, a named list of build tasks; in GitHub Actions, an automated process in YAML    |
+
+[fms]: https://github.com/raandree/FileManagementSample

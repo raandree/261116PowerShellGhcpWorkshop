@@ -1,6 +1,6 @@
 ---
 status: current
-last-verified: 2026-11-17
+last-verified: 2026-11-18
 owner: active-agent
 source: repository evidence
 ---
@@ -13,6 +13,8 @@ The workshop notes are split into 17 verified topic pages and await review.
 
 ## Recent milestones
 
+- 2026-11-18: README next steps point to FileManagementSample, where the
+  module offered during the workshop is published; the open item is closed.
 - 2026-11-17: README split into 17 topic pages in `docs/`, each extended
   with examples, pitfalls, exercises, and takeaways; new chapter on
   scaffolding a module with Sampler; sample data in `samples/`.
@@ -28,4 +30,6 @@ The workshop notes are split into 17 verified topic pages and await review.
 
 ## Open work
 
-- Add the module files of the ZfFileManagementModule once they are provided.
+- Review of the topic pages by the trainer.
+- FileManagementSample has no license file; it needs one before the README
+  can invite readers to reuse its files.
