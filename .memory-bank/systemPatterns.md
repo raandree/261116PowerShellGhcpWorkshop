@@ -1,6 +1,6 @@
 ---
 status: current
-last-verified: 2026-11-17
+last-verified: 2026-11-18
 owner: active-agent
 source: repository evidence
 ---
@@ -47,3 +47,10 @@ source: repository evidence
   `samples/New-WorkshopFolder.ps1` creates; the script writes identical
   bytes on every platform and deletes only folders that carry its marker.
 - Rationale: Exercise solutions can show real, reproducible output.
+
+### Decision 6: Version only the shared Memory Bank files
+
+- Choice: `promptHistory.md` and `session/` stay local. `.git/info/exclude`
+  lists both, and commits stage explicit paths instead of `git add -A`.
+- Rationale: The prompt history is local by design, and the compaction
+  checkpoints contain local paths; Decision 3 keeps the repository neutral.

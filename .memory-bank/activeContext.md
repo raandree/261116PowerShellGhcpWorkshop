@@ -30,6 +30,11 @@ links. `README.md` is the landing page; `samples/` holds the sample data.
 
 ## Next step
 
-Await the review by the trainer. FileManagementSample has no license file
-(checked on 2026-11-18), so the README points readers to the repository but
-does not invite them to copy its files.
+Await the review by the trainer. Before the first push, squash the local
+commits: the two earliest commits still contain the old module name and the
+compaction checkpoints, which hold local paths. `promptHistory.md` and
+`session/` are local only (Decision 6).
+
+FileManagementSample has no license file (checked on 2026-11-18), so the
+README points readers to the repository but does not invite them to copy its
+files.

@@ -15,6 +15,8 @@ The workshop notes are split into 17 verified topic pages and await review.
 
 - 2026-11-18: README next steps point to FileManagementSample, where the
   module offered during the workshop is published; the open item is closed.
+- 2026-11-18: `promptHistory.md` and the compaction checkpoints in
+  `session/` are no longer tracked; earlier commits had included them.
 - 2026-11-17: README split into 17 topic pages in `docs/`, each extended
   with examples, pitfalls, exercises, and takeaways; new chapter on
   scaffolding a module with Sampler; sample data in `samples/`.
@@ -31,5 +33,7 @@ The workshop notes are split into 17 verified topic pages and await review.
 ## Open work
 
 - Review of the topic pages by the trainer.
+- Squash the local commits before the first push: the two earliest commits
+  still contain the old module name and the compaction checkpoints.
 - FileManagementSample has no license file; it needs one before the README
   can invite readers to reuse its files.
