@@ -9,10 +9,13 @@ source: repository evidence
 
 ## Current status
 
-The workshop notes are split into 17 verified topic pages and await review.
+The workshop notes are public on GitHub as 17 verified topic pages and await
+review.
 
 ## Recent milestones
 
+- 2026-11-18: `origin/main` is public and matches `main`; the history was
+  pushed without the planned squash.
 - 2026-11-18: README next steps point to FileManagementSample, where the
   module offered during the workshop is published; the open item is closed.
 - 2026-11-18: `promptHistory.md` and the compaction checkpoints in
@@ -33,7 +36,8 @@ The workshop notes are split into 17 verified topic pages and await review.
 ## Open work
 
 - Review of the topic pages by the trainer.
-- Squash the local commits before the first push: the two earliest commits
-  still contain the old module name and the compaction checkpoints.
+- Decide whether to rewrite the public history: `b21304f` and `13acb5a`
+  still contain the old module name and the compaction checkpoints, and
+  removing them needs a force push.
 - FileManagementSample has no license file; it needs one before the README
   can invite readers to reuse its files.
